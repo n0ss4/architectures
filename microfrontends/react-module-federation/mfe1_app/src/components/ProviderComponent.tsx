@@ -13,34 +13,46 @@ export const useRemoteCart = () => {
 };
 
 const ProductCard: React.FC<{ product: Product; onAdd: (product: Product) => void }> = ({ product, onAdd }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+
+  const handleAddToCart = () => {
+    onAdd(product);
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 600);
+  };
 
   return (
-    <article 
-      className="product-card"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="product-image">
-        {product.image}
-      </div>
+    <>
+      <article 
+        className="product-card"
+      >
+        <div className="product-image" onClick={() => setShowImageModal(true)}>
+          <img src={product.image} alt={product.name} />
+        </div>
       <div className="product-content">
         <div className="product-info">
           <h3 className="product-name">{product.name}</h3>
           <p className="product-price">${product.price}</p>
         </div>
         <button
-          onClick={() => onAdd(product)}
-          className="btn-add"
-          style={{
-            background: isHovered ? 'var(--color-foreground)' : 'var(--color-surface)',
-            color: isHovered ? 'var(--color-surface)' : 'var(--color-foreground)'
-          }}
+          onClick={handleAddToCart}
+          className={`btn-add ${isAdded ? 'btn-added' : ''}`}
         >
           Add to cart
         </button>
       </div>
     </article>
+    
+    {showImageModal && (
+      <div className="image-modal" onClick={() => setShowImageModal(false)}>
+        <div className="image-modal-content">
+          <img src={product.image} alt={product.name} />
+          <button className="close-modal">&times;</button>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 
