@@ -1,45 +1,76 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import './ProviderComponent.css';
+// @ts-ignore
+import { Product, CartContextType } from 'host_app/types';
+// @ts-ignore
+import { PRODUCTS } from 'host_app/products';
 
-interface CounterContextType {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
-  reset: () => void;
-}
+const CartContext = createContext<CartContextType | null>(null);
 
-const CounterContext = createContext<CounterContextType | null>(null);
-
-export const useRemoteCounter = () => {
-  const context = useContext(CounterContext);
+export const useRemoteCart = () => {
+  const context = useContext(CartContext);
   return context;
 };
 
-const Provider: React.FC = () => {
-  const counter = useRemoteCounter();
+const ProductCard: React.FC<{ product: Product; onAdd: (product: Product) => void }> = ({ product, onAdd }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-  if (!counter) {
+  return (
+    <article 
+      className="product-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="product-image">
+        {product.image}
+      </div>
+      <div className="product-content">
+        <div className="product-info">
+          <h3 className="product-name">{product.name}</h3>
+          <p className="product-price">${product.price}</p>
+        </div>
+        <button
+          onClick={() => onAdd(product)}
+          className="btn-add"
+          style={{
+            background: isHovered ? 'var(--color-foreground)' : 'var(--color-surface)',
+            color: isHovered ? 'var(--color-surface)' : 'var(--color-foreground)'
+          }}
+        >
+          Add to cart
+        </button>
+      </div>
+    </article>
+  );
+};
+
+const Provider: React.FC = () => {
+  const cart = useRemoteCart();
+
+  if (!cart) {
     return (
       <div>
-        <h2>Remote App (MFE)</h2>
-        <p>Running standalone - no shared state</p>
+        <h2>Product Catalog</h2>
+        <p>Running standalone</p>
       </div>
     );
   }
 
-  const { count, increment, decrement } = counter;
-
   return (
-    <div>
-      <h2>Remote App (MFE)</h2>
-      <div style={{ marginTop: '1rem' }}>
-        <p>Shared Counter: {count}</p>
-        <button onClick={increment}>Increment from Remote</button>
-        <button onClick={decrement} style={{ marginLeft: '0.5rem' }}>Decrement from Remote</button>
+    <section className="products-section">
+      <h2 className="products-title">Products</h2>
+      <div className="products-grid">
+        {PRODUCTS.map(product => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAdd={cart.addToCart}
+          />
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
 export default Provider;
-export { CounterContext };
+export { CartContext };
