@@ -1,19 +1,45 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import './ProviderComponent.css';
 
+interface CounterContextType {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+  reset: () => void;
+}
+
+const CounterContext = createContext<CounterContextType | null>(null);
+
+export const useRemoteCounter = () => {
+  const context = useContext(CounterContext);
+  return context;
+};
+
 const Provider: React.FC = () => {
-  return (
-    <div className="container">
-      <div className="icon-container">
-        <img
-          src="https://module-federation.io/svg.svg"
-          alt="logo"
-          className="logo-image"
-        />
+  const counter = useRemoteCounter();
+
+  if (!counter) {
+    return (
+      <div>
+        <h2>Remote App (MFE)</h2>
+        <p>Running standalone - no shared state</p>
       </div>
-      <h1 className="title">Hello Module Federation 2.0</h1>
+    );
+  }
+
+  const { count, increment, decrement } = counter;
+
+  return (
+    <div>
+      <h2>Remote App (MFE)</h2>
+      <div style={{ marginTop: '1rem' }}>
+        <p>Shared Counter: {count}</p>
+        <button onClick={increment}>Increment from Remote</button>
+        <button onClick={decrement} style={{ marginLeft: '0.5rem' }}>Decrement from Remote</button>
+      </div>
     </div>
   );
 };
 
 export default Provider;
+export { CounterContext };
