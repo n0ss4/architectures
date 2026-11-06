@@ -111,3 +111,20 @@ the link resolves once the template is copied to `<family>/<example>/README.md`.
 - **Third-party license (T037, 2026-11-07)**: The owner chose to publish without requesting permission
   from the `mf-nf-poc` author. The upstream author is credited, and the affected files stay excluded
   from the root license in `THIRD_PARTY_NOTICES.md`.
+
+## Published repository (T040, 2026-11-07)
+
+Checks 1 to 5 were repeated from a fresh clone of `https://github.com/n0ss4/architectures.git`, at
+commit `9627044`.
+
+| Check | Result |
+|-------|--------|
+| 1. History | Pass, 0 of 4 React and 0 of 8 Angular commits missing |
+| 2. React example | Pass, with the same observations as above |
+| 3. Angular example, in development and through Docker | Pass, no browser errors on any route |
+| 4. Isolation, building each example's host without the other example | Pass |
+| 5. Documentation | Pass, except for the pending reader test (T038) |
+
+GitHub reported the license as `NOASSERTION`, because the root `LICENSE` contained an extra line about
+the exclusion. The file now has the standard MIT text; the exclusion remains in the root README and
+`THIRD_PARTY_NOTICES.md`.
