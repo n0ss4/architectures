@@ -17,7 +17,7 @@ description: "Task list for the repository foundation feature"
 
 - **[P]**: Can run in parallel (different files, no dependencies on incomplete tasks)
 - **[Story]**: The user story the task belongs to (US1 to US4)
-- Paths are relative to the repository root, `/Users/nossair/projects/architectures`
+- Paths are relative to the repository root
 
 ## Execution Rules
 
@@ -153,7 +153,7 @@ Run T017 to T021 in a temporary `git clone --branch feat/repository-foundation` 
 
 **Purpose**: Publish and retire the sources. **Stop before each task and get explicit approval; do not treat earlier approvals as covering it.**
 
-- [ ] T037 Owner asks the upstream author of `mf-nf-poc` to add a license or grant permission, or explicitly accepts publishing with the exclusion alone; record the outcome in `THIRD_PARTY_NOTICES.md`
+- [X] T037 Owner asks the upstream author of `mf-nf-poc` to add a license or grant permission, or explicitly accepts publishing with the exclusion alone; record the outcome in `THIRD_PARTY_NOTICES.md`
 - [ ] T038 Run the SC-003 reader test with a developer new to the repository and record the result in `specs/001-repository-foundation/verification.md`
 - [ ] T039 Merge `feat/repository-foundation` into `main` with `--no-ff`, create the public `n0ss4/architectures` repository with `gh repo create`, and push `main`, adding the description and topics stated in `README.md`
 - [ ] T040 Repeat quickstart checks 1 to 5 from a fresh clone of `https://github.com/n0ss4/architectures.git` and record the result in `specs/001-repository-foundation/verification.md`

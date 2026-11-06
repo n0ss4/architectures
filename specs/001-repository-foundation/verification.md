@@ -105,3 +105,9 @@ The link scan reports `templates/example-readme.md` as pointing to a missing pat
 the link resolves once the template is copied to `<family>/<example>/README.md`.
 
 **Result**: Pass, except for the pending reader test.
+
+## Publication decisions
+
+- **Third-party license (T037, 2026-11-07)**: The owner chose to publish without requesting permission
+  from the `mf-nf-poc` author. The upstream author is credited, and the affected files stay excluded
+  from the root license in `THIRD_PARTY_NOTICES.md`.
