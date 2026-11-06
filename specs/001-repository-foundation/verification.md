@@ -44,6 +44,10 @@ opening browser windows during the test.
 - The browser logged one dev-only error: `HMR update failed, performing full reload`.
 - Requests to `plugable.com` and `www.keychron.in` failed. These hosts serve hotlinked product
   images. The cause was not investigated.
+- With the host stopped, opening `mfe1_app` or `mfe2_app` directly renders a blank page and logs
+  `RUNTIME-003`. With the host running, each shows only a `Running standalone` placeholder. This
+  contradicted the imported README, which has been corrected.
+- The remotes build successfully while the host is stopped.
 
 **Result**: Pass, with the observations above.
 
@@ -85,4 +89,19 @@ scripts.
 
 ## Check 5: Documentation (SC-003 to SC-006)
 
-Pending: see the final section once task T034 is complete.
+| Check | Result |
+|-------|--------|
+| Relative links and anchors | Pass, none broken |
+| External links | Pass, all respond 200, except `localhost` URLs, which need the apps to be running |
+| Depth from the root README (SC-006) | Pass, every example, the domain, and the decision log are 1 link away |
+| Example READMEs follow the template (SC-004) | Pass, for both examples |
+| Comparison table has evidence or `Not measured` (SC-005) | Pass, no empty cells |
+| New content is in English | Pass, using a pattern scan for Spanish text |
+| Licensing and credits | Pass, all notices and `mf-nf-poc` credits are present |
+| Sync Impact Report removed | Pass |
+| Reader test (SC-003) | **Not done**: needs a developer new to the repository (task T038) |
+
+The link scan reports `templates/example-readme.md` as pointing to a missing path. This is expected:
+the link resolves once the template is copied to `<family>/<example>/README.md`.
+
+**Result**: Pass, except for the pending reader test.

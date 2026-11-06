@@ -141,9 +141,9 @@ Run T017 to T021 in a temporary `git clone --branch feat/repository-foundation` 
 
 **Purpose**: Validate the complete repository
 
-- [ ] T034 Run the automatable parts of quickstart check 5 across `README.md`, `CONTRIBUTING.md`, `THIRD_PARTY_NOTICES.md`, `microfrontends/`, `domain/`, and `decisions/`: no broken relative links, depth of at most 2 links, all template sections in order, no empty comparison cells, all new content in English, licensing files and credits present, and no Sync Impact Report; fix what fails
-- [ ] T035 Run `/speckit-converge` and complete any tasks it appends to `specs/001-repository-foundation/tasks.md`
-- [ ] T036 Record in `specs/001-repository-foundation/verification.md` that the SC-003 reader test still needs a developer new to the repository, then report the final state of the `feat/repository-foundation` branch to the owner
+- [X] T034 Run the automatable parts of quickstart check 5 across `README.md`, `CONTRIBUTING.md`, `THIRD_PARTY_NOTICES.md`, `microfrontends/`, `domain/`, and `decisions/`: no broken relative links, depth of at most 2 links, all template sections in order, no empty comparison cells, all new content in English, licensing files and credits present, and no Sync Impact Report; fix what fails
+- [X] T035 Run `/speckit-converge` and complete any tasks it appends to `specs/001-repository-foundation/tasks.md`
+- [X] T036 Record in `specs/001-repository-foundation/verification.md` that the SC-003 reader test still needs a developer new to the repository, then report the final state of the `feat/repository-foundation` branch to the owner
 
 **Checkpoint**: The repository is complete locally and ready for the owner's review
 
@@ -231,3 +231,10 @@ Task: "Create THIRD_PARTY_NOTICES.md"
 - `verification.md` is created by T009; it is not one of the template's standard artifacts, but it provides the evidence for SC-001 and SC-002
 - T037 and T038 need people other than the implementing agent
 - Out of scope, per the spec: adapting Angular to the store domain, changing the React host-owned contracts, a mixed React and Angular example, new families, and a full set of comparative measurements
+
+---
+
+## Phase 9: Convergence
+
+- [X] T043 CRITICAL: Correct the claim that each remote can run standalone in `microfrontends/react-module-federation/README.md`, since both remotes render a blank page with `RUNTIME-003` when the host is not running, and record the limitation per Constitution V (contradicts)
+- [X] T044 Correct the claim about building remotes without the host in `microfrontends/react-module-federation/README.md`, since their builds exit 0 with the host stopped, per Constitution IV (contradicts)
