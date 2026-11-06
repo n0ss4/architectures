@@ -14,19 +14,21 @@ Git 2.54.0, pnpm 10.32.1, npm 11.18.0, and Spec Kit 1.3.2.
   2 and 7 commits for the two READMEs.
 - **Alternatives considered**: `git subtree add` keeps the original SHAs, but `git log` returned
   0 commits on the new paths, even with `--full-history`. A squashed import loses the history.
-- **Trade-off**: Commit SHAs change. The impact is low: neither source has tags, stars, or forks,
-  and the archived repositories keep the original SHAs.
+- **Trade-off**: Commit SHAs change. The impact is low: neither source has tags, stars, or forks. The
+  original SHAs are mapped to the new ones in [verification.md](./verification.md).
 - **Note**: `--no-ff` is required because the owner's Git configuration only allows fast-forward
   merges by default.
 
 ## R2. Non-default branches
 
-- **Decision**: Do not import `auth-example` (`angular-microfrontends`, 3 commits not on `main`).
-  It stays in the archived repository, and the example's known limitations link to it.
-- **Rationale**: It is an unmerged variant with a large diff (32 files), and the spec covers default
-  branches only. Archiving keeps it readable. It could become a future authentication example.
-- **Alternatives considered**: Importing it as a branch would hide it from readers of `main`;
-  merging it would change the example's behavior, which is out of scope.
+- **Decision**: Do not merge `auth-example` (`angular-microfrontends`, 3 commits not on `main`). Keep it
+  as the unmerged branch `feat/angular-auth-example`, and link to it from the example's known
+  limitations.
+- **Rationale**: It is an unmerged variant with a large diff (32 files), and merging it would change the
+  example's behavior, which is out of scope. The owner chose to delete the source repositories rather
+  than archive them, so this branch must live here. It could become a future authentication example.
+- **Alternatives considered**: Merging it now; archiving the source repositories, which the owner
+  declined.
 
 ## R3. Third-party code
 

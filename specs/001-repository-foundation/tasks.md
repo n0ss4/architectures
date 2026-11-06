@@ -24,7 +24,7 @@ description: "Task list for the repository foundation feature"
 - Run shell steps with `bash`. Word splitting differs in zsh.
 - Use Conventional Commits and add no attribution trailers or links to commit messages.
 - Commit after each task or logical group, on `feat/repository-foundation`.
-- Do not create a GitHub repository, push, edit a source repository, or archive anything without the owner's explicit approval. Phase 8 holds all of these steps.
+- Do not create a GitHub repository, push, edit a source repository, or delete anything without the owner's explicit approval. Phase 8 holds all of these steps.
 - Record what you actually observe. A failed check goes in `specs/001-repository-foundation/verification.md` and the example's known limitations; do not mark that example as verified.
 
 ---
@@ -157,8 +157,8 @@ Run T017 to T021 in a temporary `git clone --branch feat/repository-foundation` 
 - [ ] T038 Run the SC-003 reader test with a developer new to the repository and record the result in `specs/001-repository-foundation/verification.md`
 - [X] T039 Merge `feat/repository-foundation` into `main` with `--no-ff`, create the public `n0ss4/architectures` repository with `gh repo create`, and push `main`, adding the description and topics stated in `README.md`
 - [X] T040 Repeat quickstart checks 1 to 5 from a fresh clone of `https://github.com/n0ss4/architectures.git` and record the result in `specs/001-repository-foundation/verification.md`
-- [ ] T041 Add a link to the new location at the top of the `README.md` in `n0ss4/react-microfrontends` and in `n0ss4/angular-microfrontends`, on `main`
-- [ ] T042 Archive `n0ss4/react-microfrontends` and `n0ss4/angular-microfrontends` with `gh repo archive`, and confirm that `auth-example` remains readable in the archived `n0ss4/angular-microfrontends`
+- [X] T041 Cancelled: the owner chose to delete the source repositories, so no link to the new location is added to them
+- [ ] T042 After `feat/angular-auth-example` is available in `n0ss4/architectures`, delete `n0ss4/react-microfrontends` and `n0ss4/angular-microfrontends` with `gh repo delete`, and record the result in `specs/001-repository-foundation/verification.md`
 
 ---
 

@@ -34,7 +34,7 @@ Node 20 for Angular and Node 24 for React, pinned per example (research R5).
 performance is not a goal of this feature.
 
 **Constraints**: No repository-wide build tooling (Principle III). No behavior changes to the
-examples beyond the fixes in research R4. Publishing and archiving require the owner's approval.
+examples beyond the fixes in research R4. Publishing and deleting the source repositories require the owner's approval.
 
 **Scale/Scope**: 1 family, 2 examples, 8 runnable apps, 12 imported commits.
 

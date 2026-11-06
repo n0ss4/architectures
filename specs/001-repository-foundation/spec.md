@@ -80,7 +80,7 @@ As the repository owner, I want a lightweight decision record format, so that th
 - If the source projects use different package managers or runtime versions, each example keeps its own and documents them.
 - If a source project has no license file of its own, the repository-level license applies to it.
 - If imported code is adapted from a third party that has not declared a license, the repository-level license does not cover that code; the affected files are listed in a third-party notice.
-- If a source project has branches other than its default branch, they are not imported and remain available in the archived source repository; the example's known limitations link to them.
+- If a source project has branches other than its default branch, they are not merged; they are kept as unmerged branches in this repository, and the example's known limitations link to them.
 - If an example covers only part of the shared domain, or none of it (for example, a project that demonstrates only integration mechanisms), the README says so explicitly; the example is not excluded.
 
 ## Requirements *(mandatory)*
@@ -100,7 +100,7 @@ As the repository owner, I want a lightweight decision record format, so that th
 - **FR-011**: The decision log MUST include a first record on the ownership of contracts shared between a host and its remotes.
 - **FR-012**: The repository MUST preserve existing license notices and third-party source attribution, and MUST state its own license at the root.
 - **FR-013**: All new repository content MUST be in English.
-- **FR-014**: After the new repository is published and verified, each source repository's README MUST link to the new location, and the source repository MUST then be archived. Both actions require the owner's explicit approval.
+- **FR-014**: After the new repository is published and verified, and any unmerged branches are preserved in it, the source repositories MUST be deleted. Deletion requires the owner's explicit approval.
 
 ### Key Entities
 

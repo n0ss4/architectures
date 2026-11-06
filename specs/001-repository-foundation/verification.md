@@ -111,6 +111,9 @@ the link resolves once the template is copied to `<family>/<example>/README.md`.
 - **Third-party license (T037, 2026-11-07)**: The owner chose to publish without requesting permission
   from the `mf-nf-poc` author. The upstream author is credited, and the affected files stay excluded
   from the root license in `THIRD_PARTY_NOTICES.md`.
+- **Source repositories (T042, 2026-11-07)**: The owner chose to delete both source repositories instead
+  of archiving them. Their only unmerged branch, `auth-example`, was preserved first as
+  `feat/angular-auth-example`.
 
 ## Published repository (T040, 2026-11-07)
 
@@ -128,3 +131,25 @@ commit `9627044`.
 GitHub reported the license as `NOASSERTION`, because the root `LICENSE` contained an extra line about
 the exclusion. The file now has the standard MIT text; the exclusion remains in the root README and
 `THIRD_PARTY_NOTICES.md`.
+
+## Source commit map
+
+The import rewrote commit SHAs. This table maps each original commit to its commit in this repository.
+
+| Source | Original | Here | Subject |
+|--------|----------|------|---------|
+| `react-microfrontends` | `14450604ea` | `902922edb4` | feat: implement minimalist design system with checkout microfrontend |
+| `react-microfrontends` | `54bf4889cc` | `0bde09705a` | feat: better ui and better design |
+| `react-microfrontends` | `86370ab209` | `8b171664f0` | feat: initialize module federation project with host and remote apps |
+| `react-microfrontends` | `dea3453675` | `745c782b3f` | feat: add shared Zustand state between host and microfrontend |
+| `angular-microfrontends` | `03e83b0686` | `073987ee68` | feat(mfe4): integrate as web component with Angular Elements |
+| `angular-microfrontends` | `183e0af140` | `87e36d2edb` | feat(scripts): add start/stop/restart scripts for managing all apps |
+| `angular-microfrontends` | `1d9cc4b255` | `3c42506202` | fix(auth): resolve login issues for admin and manager users |
+| `angular-microfrontends` | `55249b5655` | `088c57d810` | refactor(auth): remove unused comments |
+| `angular-microfrontends` | `5590a72db4` | `998da20efb` | docs: add source attribution for mf-nf-poc utilities |
+| `angular-microfrontends` | `66d4107dc6` | `d470277369` | chore(init): initial monorepo setup with host and microfrontends |
+| `angular-microfrontends` | `775cd354bc` | `efe9923058` | feat(auth): implementation with oicd |
+| `angular-microfrontends` | `780132b3ac` | `fa585925a9` | feat(docker): add production deployment with Docker and nginx gateway |
+| `angular-microfrontends` | `9f5ba4b035` | `7f167ed303` | chore(repo): include actual microfrontend sources in monorepo |
+| `angular-microfrontends` | `acf291b461` | `0d6d899197` | chore: add MIT license |
+| `angular-microfrontends` | `b92a132257` | `1180ed9138` | docs: improve README with detailed architecture diagram |
