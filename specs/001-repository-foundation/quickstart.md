@@ -37,7 +37,8 @@ Follow only `microfrontends/angular-federation/README.md`, with its `.nvmrc` act
 - All five apps install and build (`host-app` and `mfe1-app` to `mfe4-app`).
 - `scripts/dev/start.sh` starts them on ports 4200 to 4204 from a fresh clone, and the host loads
   each remote. `scripts/dev/stop.sh` stops them.
-- `docker compose up --build` serves the host through the gateway, on port 80.
+- After `scripts/prod/build-all.sh`, `docker compose up -d --build` serves the host through the
+  gateway, on port 80.
 
 Any failure is recorded under the example's known limitations, and the example is not reported as
 verified.
