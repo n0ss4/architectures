@@ -38,8 +38,12 @@ pnpm >= 8
 
 ### Installation
 
+Each app has its own dependencies, so install them separately:
+
 ```bash
-pnpm install
+(cd host_app && pnpm install)
+(cd mfe1_app && pnpm install)
+(cd mfe2_app && pnpm install)
 ```
 
 ### Development
