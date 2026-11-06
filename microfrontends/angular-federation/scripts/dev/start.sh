@@ -3,6 +3,9 @@
 # Navigate to project root
 cd "$(dirname "$0")/../.." || exit
 
+# Create runtime directories, which Git ignores
+mkdir -p logs .pids
+
 # Colors for output
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
