@@ -68,5 +68,5 @@ build.
 Only after the owner approves each step:
 
 1. The repository is public on GitHub, and a fresh clone passes checks 1 to 5.
-2. Each source README links to the new location.
-3. Each source repository is archived, and `auth-example` remains readable.
+2. `feat/angular-auth-example` is available in the new repository.
+3. Each source repository is deleted, and the new repository still passes its link check.

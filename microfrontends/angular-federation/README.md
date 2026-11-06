@@ -86,7 +86,7 @@ Open [http://localhost](http://localhost). You can also build images and deploy 
 - **Fixed production host**: the [production manifest](./host-app/src/assets/federation.manifest.prod.json) points `mfe3-app` to `http://localhost`, so deploying to another host needs a change.
 - **Not verified**: `scripts/dev/restart.sh`, `scripts/prod/deploy.sh`, and the `scripts/prod/docker-*.sh` scripts.
 - **Third-party code**: three host files adapted from `mf-nf-poc` are excluded from the MIT license. See [`THIRD_PARTY_NOTICES.md`](../../THIRD_PARTY_NOTICES.md).
-- **Not imported**: an OIDC authentication variant remains on the [`auth-example` branch of the source repository](https://github.com/n0ss4/angular-microfrontends/tree/auth-example).
+- **Not merged**: an OIDC authentication variant, which uses a mock identity provider with demo passwords, is on the [`feat/angular-auth-example` branch](https://github.com/n0ss4/architectures/tree/feat/angular-auth-example). It could become a future example.
 
 ## Architecture
 
