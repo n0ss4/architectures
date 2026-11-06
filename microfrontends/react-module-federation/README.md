@@ -15,7 +15,7 @@ How can independently built React apps form one store at runtime and share a sin
 ## When not to use it
 
 - Your apps need different frameworks or incompatible major versions. See [`angular-federation`](../angular-federation/README.md), whose `mfe4-app` runs on a different Angular major version from its host.
-- You need remotes to be built or changed without their host. Here, the remotes import types and data from the host.
+- You need remotes to run without their host. Here, the remotes load types and data from the host at runtime, although they can be built while it is stopped.
 - One team ships everything on one schedule. See the [family decision guide](../README.md#decision-guide).
 
 ## Trade-offs
@@ -73,6 +73,7 @@ To build all apps:
 
 ## Known limitations
 
+- **Remotes need the host**: without the host running, `mfe1_app` and `mfe2_app` render a blank page and log `RUNTIME-003`. With the host running, opening a remote directly shows only a `Running standalone` placeholder, because the cart is provided by the host.
 - **Development URLs only**: [remote URLs](./host_app/module-federation.config.ts) point to `localhost`, so there is no production deployment setup. `pnpm preview` has not been verified.
 - **Type generation error**: `mfe1_app` and `mfe2_app` builds log a Module Federation type-generation error (`TYPE-001`), but they exit successfully.
 - **Broken export**: [`host_app/src/store/index.ts`](./host_app/src/store/index.ts) exports `useCounterStore`, a module that does not exist. Nothing imports this file.
@@ -171,7 +172,6 @@ react-module-federation/
 - Host must be running before starting remote apps
 - All microfrontends share React and ReactDOM as singletons
 - Theme CSS is loaded once from host and inherited by all remotes
-- Each MFE can run standalone for development/testing
 
 ## Created With
 
